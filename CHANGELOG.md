@@ -1,8 +1,8 @@
-# Change Log
+# Changelog
 
-All notable changes to the "KaleidoFoam" extension will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## 1.0.0 (2022-02-21)
 
 ## 1.0.0
 
