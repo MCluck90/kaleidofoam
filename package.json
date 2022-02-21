@@ -1,11 +1,16 @@
 {
   "name": "kaleidofoam",
   "displayName": "KaleidoFoam",
-  "description": "My personalized Markdown extension",
+  "publisher": "MikeCluck",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MCluck90/kaleidofoam"
+  },
+  "description": "A collection of features for Foam",
   "version": "1.0.0",
   "license": "MIT",
   "engines": {
-    "vscode": "^1.56.0"
+    "vscode": "^1.59.0"
   },
   "categories": [
     "Other"
@@ -98,7 +103,8 @@
     "lint": "eslint src --ext ts && prettier -c \"src/**/*.ts\"",
     "test:unit": "npm run pretest && node ./out/test/unit/index.js",
     "test": "node ./out/test/runTest.js",
-    "package": "vsce ."
+    "vscode:package": "vsce package",
+    "vscode:publish": "vsce publish"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
