@@ -1,0 +1,136 @@
+{
+  "name": "kaleidofoam",
+  "displayName": "KaleidoFoam",
+  "description": "My personalized Markdown extension",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.56.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onCommand:kaleidofoam.openLastWeek",
+    "onCommand:kaleidofoam.openThisWeek",
+    "onCommand:kaleidofoam.openNextWeek",
+    "onCommand:kaleidofoam.generateDailyEdgeLinks",
+    "onCommand:kaleidofoam.toggleWordWrapColumn",
+    "onCommand:kaleidofoam.checkTodo",
+    "onCommand:kaleidofoam.uncheckTodo"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "KaleidoFoam",
+      "properties": {
+        "kaleidofoam.minutesBeforeNotifications": {
+          "type": "number",
+          "default": 0,
+          "description": "How many minutes before a scheduled notification should the notification fire?"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "kaleidofoam.openLastWeek",
+        "title": "KaleidoFoam: Open Last Week"
+      },
+      {
+        "command": "kaleidofoam.openThisWeek",
+        "title": "KaleidoFoam: Open This Week"
+      },
+      {
+        "command": "kaleidofoam.openNextWeek",
+        "title": "KaleidoFoam: Open Next Week"
+      },
+      {
+        "command": "kaleidofoam.openWeekOfNote",
+        "title": "KaleidoFoam: Open Week of Note"
+      },
+      {
+        "command": "kaleidofoam.generateDailyEdgeLinks",
+        "title": "KaleidoFoam: Generate Daily Edge Links"
+      },
+      {
+        "command": "kaleidofoam.toggleWordWrapColumn",
+        "title": "KaleidoFoam: Toggle Word Wrap Column"
+      },
+      {
+        "command": "kaleidofoam.forwardTodo",
+        "title": "KaleidoFoam: Forward Todo"
+      },
+      {
+        "command": "kaleidofoam.unforwardTodo",
+        "title": "KaleidoFoam: Unforward Todo"
+      },
+      {
+        "command": "kaleidofoam.toggleTodo",
+        "title": "KaleidoFoam: Toggle Todo"
+      },
+      {
+        "command": "kaleidofoam.addToLog",
+        "title": "KaleidoFoam: Add to Log"
+      },
+      {
+        "command": "kaleidofoam.toggleTodoTag.focus",
+        "title": "KaleidoFoam: Toggle @focus"
+      },
+      {
+        "command": "kaleidofoam.toggleTodoTag.urgent",
+        "title": "KaleidoFoam: Toggle @urgent"
+      },
+      {
+        "command": "kaleidofoam.toggleTodoTag.optional",
+        "title": "KaleidoFoam: Toggle @optional"
+      }
+    ]
+  },
+  "scripts": {
+    "commit": "cz",
+    "release": "standard-version",
+    "prepare": "husky install",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts && prettier -c \"src/**/*.ts\"",
+    "test:unit": "npm run pretest && node ./out/test/unit/index.js",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce ."
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.6.2",
+    "@types/node-notifier": "^8.0.1",
+    "@types/vscode": "^1.59.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^7.32.0",
+    "glob": "^7.1.7",
+    "husky": "^7.0.4",
+    "mocha": "^9.1.0",
+    "prettier": "^2.5.1",
+    "standard-version": "^9.3.2",
+    "typescript": "^4.3.5",
+    "vsce": "^1.96.1",
+    "vscode-dts": "^0.3.1",
+    "vscode-test": "^1.6.1"
+  },
+  "dependencies": {
+    "fp-ts": "^2.11.1",
+    "node-notifier": "^10.0.0",
+    "parsnip-ts": "^1.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
