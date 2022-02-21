@@ -95,6 +95,8 @@ Example:
 
 By default, this will send a notification at 11:00 telling you to check your email. You can configure how long before the time to send the notification with the `kaleidofoam.minutesBeforeNotifications` setting.
 
+NOTE: Only verified to work on Windows. I've had issues getting this to work on Linux.
+
 ### Toggle Todo
 Command: `kaleidofoam.toggleTodo`
 
