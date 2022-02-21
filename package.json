@@ -2,7 +2,7 @@
   "name": "kaleidofoam",
   "displayName": "KaleidoFoam",
   "description": "My personalized Markdown extension",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "engines": {
     "vscode": "^1.56.0"
