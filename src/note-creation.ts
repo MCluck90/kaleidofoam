@@ -38,7 +38,7 @@ export const createDailyNote = async (date: Date, workspaceUri: vscode.Uri) => {
   await vscode.workspace.fs.writeFile(
     notePath,
     new TextEncoder().encode(
-      `# ${title}\n\n[[${weeklyNoteTitle}]]\n\n[[${yesterday}]] | [[${tomorrow}]]\n\n---\n\n## TODO\n\n\n## Log\n\n\n`
+      `# ${title}\n\n[[${weeklyNoteTitle}]]\n\n[[${yesterday}]] | [[${tomorrow}]]\n\n---\n\n## TODO\n\n## Log\n\n`
     )
   )
 }
