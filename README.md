@@ -145,3 +145,9 @@ Commands:
 - `kaleidofoam.openNextWeek`,
 
 Generates and opens a weekly note. Contains references to all of the daily notes for that week and contains a TODO section.
+
+## Development
+
+### Generating the Changelog
+
+Requires [`git cliff`](https://github.com/orhun/git-cliff)
