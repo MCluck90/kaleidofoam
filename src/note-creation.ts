@@ -30,7 +30,7 @@ export const createDailyNote = async (date: Date, workspaceUri: vscode.Uri) => {
   const title = toYYYYMMDD(date)
   const notePath = vscode.Uri.joinPath(workspaceUri, `dailies/${title}.md`)
   if (await doesPathExist(notePath)) {
-    return
+    return notePath
   }
 
   const startOfWeek = getStartOfWeek(date)
