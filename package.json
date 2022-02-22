@@ -103,7 +103,7 @@
     "prepare": "husky install",
     "vscode:prepublish": "npm run compile",
     "copy-templates": "rimraf out/templates && copyfiles -f src/templates/* out/templates",
-    "compile": "tsc -p ./ && copy-templates",
+    "compile": "tsc -p ./ && yarn copy-templates",
     "watch": "yarn copy-templates && tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts && prettier -c \"src/**/*.ts\"",
