@@ -93,9 +93,7 @@ export const createWeeklyNote = async (
 
   let weeklyTemplate = ''
   try {
-    weeklyTemplate = fs
-      .readFileSync(path.join(__dirname, '../src/templates/weekly.md'))
-      .toString()
+    weeklyTemplate = getTemplate('weekly')
   } catch (e) {
     console.error('Failed to find weekly template\n', e)
     vscode.window.showErrorMessage(
