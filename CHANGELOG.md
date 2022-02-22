@@ -1,12 +1,13 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [unreleased]
+### [1.1.2](https://github.com/MCluck90/kaleidofoam/compare/v1.1.1...v1.1.2) (2022-02-22)
+
 
 ### Bug Fixes
 
-- Fix how the weekly note template is loaded
+* **weekly note:** fix how the weekly note template is loaded ([27a773a](https://github.com/MCluck90/kaleidofoam/commit/27a773a1336971f2b9113edb938512427ff53e02))
 
 ## [1.1.1](https://github.com/MCluck90/kaleidofoam/compare/v1.1.0...v1.1.1) - 2022-02-22
 
