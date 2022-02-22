@@ -1,0 +1,11 @@
+# $TITLE
+
+$WEEKLY
+
+$YESTERDAY | $TOMORROW
+
+---
+
+## TODO
+
+## Log

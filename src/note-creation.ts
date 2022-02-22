@@ -11,6 +11,11 @@ import {
 } from './util/date'
 import { doesPathExist } from './util/fs'
 
+type TemplateType = 'daily' | 'weekly'
+const templatesDir = path.join(__dirname, 'templates')
+const getTemplate = (type: TemplateType) =>
+  fs.readFileSync(`${templatesDir}/${type}.md`).toString()
+
 const toDaysOfTheWeek = (start: Date) => ({
   sunday: addDays(start, 0),
   monday: addDays(start, 1),
@@ -35,12 +40,34 @@ export const createDailyNote = async (date: Date, workspaceUri: vscode.Uri) => {
   const yesterday = toYYYYMMDD(addDays(date, -1))
   const tomorrow = toYYYYMMDD(addDays(date, 1))
 
+  const template = getTemplate('daily')
+  const contents = template
+    .replace('$TITLE', title)
+    .replace('$WEEKLY', `[[${weeklyNoteTitle}]]`)
+    .replace('$YESTERDAY', `[[${yesterday}]]`)
+    .replace('$TOMORROW', `[[${tomorrow}]]`)
   await vscode.workspace.fs.writeFile(
     notePath,
-    new TextEncoder().encode(
-      `# ${title}\n\n[[${weeklyNoteTitle}]]\n\n[[${yesterday}]] | [[${tomorrow}]]\n\n---\n\n## TODO\n\n## Log\n\n`
-    )
+    new TextEncoder().encode(contents)
   )
+
+  return notePath
+}
+
+export const createAndOpenDailyNote = async (date: Date) => {
+  const workspaceFolder = vscode.workspace.workspaceFolders?.[0].uri
+  if (!workspaceFolder) {
+    vscode.window.showErrorMessage('Could not get current workspace folder.')
+    return
+  }
+
+  const notePath = await createDailyNote(date, workspaceFolder)
+  if (notePath) {
+    // Generate the week and other days of the week
+    await createWeeklyNote(date)
+    const document = await vscode.workspace.openTextDocument(notePath)
+    vscode.window.showTextDocument(document)
+  }
 }
 
 export const createWeeklyNote = async (

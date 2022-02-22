@@ -22,9 +22,14 @@ Personally, I have most of the features here [bound to a keyboard shortcut](http
 
 ## Getting Started
 
-Run `KaleidoFoam: Open This Week` to generate your daily notes for the week.
+Run `KaleidoFoam: Open Today` to open your daily note.
 
 ## Features
+### Daily Note
+Command: `kaleidofoam.openToday`
+
+Opens todays daily note and generates notes for the week.
+
 ### Add to Log
 Command: `kaleidofoam.addToLog`
 

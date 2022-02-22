@@ -17,6 +17,7 @@
   ],
   "activationEvents": [
     "onLanguage:markdown",
+    "onCommand:kaleidofoam.openToday",
     "onCommand:kaleidofoam.openLastWeek",
     "onCommand:kaleidofoam.openThisWeek",
     "onCommand:kaleidofoam.openNextWeek",
@@ -38,6 +39,10 @@
       }
     },
     "commands": [
+      {
+        "command": "kaleidofoam.openToday",
+        "title": "KaleidoFoam: Open Today"
+      },
       {
         "command": "kaleidofoam.openLastWeek",
         "title": "KaleidoFoam: Open Last Week"
@@ -97,8 +102,9 @@
     "release": "standard-version",
     "prepare": "husky install",
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "copy-templates": "rimraf out/templates && copyfiles -f src/templates/* out/templates",
+    "compile": "tsc -p ./ && copy-templates",
+    "watch": "yarn copy-templates && tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts && prettier -c \"src/**/*.ts\"",
     "test:unit": "npm run pretest && node ./out/test/unit/index.js",
@@ -117,12 +123,14 @@
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
     "commitizen": "^4.2.4",
+    "copyfiles": "^2.4.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.32.0",
     "glob": "^7.1.7",
     "husky": "^7.0.4",
     "mocha": "^9.1.0",
     "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
     "standard-version": "^9.3.2",
     "typescript": "^4.3.5",
     "vsce": "^1.96.1",
