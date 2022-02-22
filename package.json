@@ -7,7 +7,7 @@
     "url": "https://github.com/MCluck90/kaleidofoam"
   },
   "description": "A collection of features for Foam",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "MIT",
   "engines": {
     "vscode": "^1.59.0"
