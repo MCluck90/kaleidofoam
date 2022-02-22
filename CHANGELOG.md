@@ -2,9 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## 1.0.0 (2022-02-21)
+## [1.1.0](https://github.com/MCluck90/kaleidofoam/compare/v1.0.0...v1.1.0) (2022-02-22)
 
-## 1.0.0
+
+### Features
+
+* **daily-note:** add command for generating and opening the daily note ([58a5785](https://github.com/MCluck90/kaleidofoam/commit/58a5785d111d4f8b357cb5fa127d397224e484bc))
+
+## 1.0.0 (2022-02-21)
 
 - Add feature for automatically adding log entries (`kaleidofoam.addToLog`)
 - Add feature for automatically adding todo entries (`kaleidofoam.addTodo`)
