@@ -4,6 +4,7 @@ import { timeToDate, toYYYYMMDD } from '../../util/date'
 import { Feature } from '../types'
 
 interface ScheduledItem {
+  line: Number
   time: Date
   message: string
 }
@@ -13,12 +14,30 @@ const hashScheduledItem = (item: ScheduledItem) =>
 
 const extractScheduledItems = (content: string): ScheduledItem[] => {
   const matches = Array.from(content.matchAll(/\[ \] (\d\d:\d\d) \| (.+)/g))
-  const items = matches.map(([, time, message]) => ({
+  const items = matches.map(({ 1: time, 2: message, index, input = '' }) => ({
+    line: input.substring(0, index).split('\n').length || 1,
     time: timeToDate(time),
     message,
   }))
   items.sort((a, b) => +a.time - +b.time)
   return items
+}
+
+const notify = (message: string, path: string = '', line: Number = 1) => {
+  const useNativeSystem = vscode.workspace
+    .getConfiguration('kaleidofoam')
+    .get<number>('nativeNotifications')
+
+  if (useNativeSystem) {
+    vscode.window.showInformationMessage(
+      `KaleidoFoam reminder - [${message}](${path}#L${line})`
+    )
+  } else {
+    notifier.notify({
+      title: 'KaleidoFoam reminder',
+      message: message,
+    })
+  }
 }
 
 let finishedItems = new Set<string>()
@@ -62,10 +81,7 @@ export const scheduledNotificationsFeature: Feature = {
 
       for (const item of upcomingItems) {
         finishedItems.add(hashScheduledItem(item))
-        notifier.notify({
-          title: item.message,
-          message: '- KaleidoFoam',
-        })
+        notify(item.message, dailyNote.toString(), item.line)
       }
 
       setTimeout(heartbeat, 60 * 1000)
