@@ -36,10 +36,15 @@
           "default": 0,
           "description": "How many minutes before a scheduled notification should the notification fire?"
         },
-        "kaleidofoam.nativeNotifications": {
-          "type": "boolean",
-          "default": false,
-          "description": "Use native vscode (true) or backwards compatible node-notifier package (false) notification system"
+        "kaleidofoam.notifications": {
+          "type": "string",
+          "default": "system",
+          "enum": ["system", "vscode", "none"],
+          "enumDescriptions": [
+            "Attempt to use system notifications (uses node-notifier)",
+            "Use VS Code notifications",
+            "Disable notifications"
+          ]
         }
       }
     },

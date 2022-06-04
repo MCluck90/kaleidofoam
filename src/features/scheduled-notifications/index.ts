@@ -9,6 +9,12 @@ interface ScheduledItem {
   message: string
 }
 
+enum Notifications {
+  None = 'none',
+  System = 'system',
+  VSCode = 'vscode',
+}
+
 const hashScheduledItem = (item: ScheduledItem) =>
   `${item.time.getHours()}:${item.time.getMinutes()}-${item.message}`
 
@@ -24,19 +30,23 @@ const extractScheduledItems = (content: string): ScheduledItem[] => {
 }
 
 const notify = (message: string, path: string = '', line: Number = 1) => {
-  const useNativeSystem = vscode.workspace
+  const notifications = vscode.workspace
     .getConfiguration('kaleidofoam')
-    .get<number>('nativeNotifications')
+    .get<Notifications>('notifications')
 
-  if (useNativeSystem) {
-    vscode.window.showInformationMessage(
-      `KaleidoFoam reminder - [${message}](${path}#L${line})`
-    )
-  } else {
-    notifier.notify({
-      title: 'KaleidoFoam reminder',
-      message: message,
-    })
+  switch (notifications) {
+    case Notifications.VSCode:
+      vscode.window.showInformationMessage(
+        `KaleidoFoam reminder - [${message}](${path}#L${line})`
+      )
+      break
+
+    case Notifications.System:
+      notifier.notify({
+        title: 'KaleidoFoam reminder',
+        message: message,
+      })
+      break
   }
 }
 
@@ -49,6 +59,15 @@ let lastDay = ''
 export const scheduledNotificationsFeature: Feature = {
   setup() {
     setTimeout(async function heartbeat() {
+      const notifications = vscode.workspace
+        .getConfiguration('kaleidofoam')
+        .get<Notifications>('notifications')
+
+      if (notifications === Notifications.None) {
+        setTimeout(heartbeat, 1000)
+        return
+      }
+
       const minutesBeforeItem =
         vscode.workspace
           .getConfiguration('kaleidofoam')
