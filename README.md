@@ -98,7 +98,16 @@ Example:
 - [ ] 11:00 | Check email
 ```
 
-By default, this will send a notification at 11:00 telling you to check your email. You can configure how long before the time to send the notification with the `kaleidofoam.minutesBeforeNotifications` setting.
+By default, this will send a notification at 11:00 telling you to check your email.
+
+#### Configuration
+- `kaleidofoam.notifications`
+  - Configure how notifications are presented
+  - `system` (default): Uses `node-notifier` to send system level notifications. Tested on Windows
+  - `vscode`: Show notifications inside of VS Code
+  - `none`: Disable notifications
+- `kaleidofoam.minutesBeforeNotifications`
+  - Set the number of minutes before the listed time to send the notification. Defaults to 0
 
 NOTE: Only verified to work on Windows. I've had issues getting this to work on Linux.
 
