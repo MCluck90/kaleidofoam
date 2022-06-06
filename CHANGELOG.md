@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/MCluck90/kaleidofoam/compare/v1.1.3...v1.2.0) (2022-06-06)
+
+
+### Features
+
+* **native-notifications:** added support for native vscode notifications ([bc111eb](https://github.com/MCluck90/kaleidofoam/commit/bc111eb86387c4bb9fc50be2a4e8be52d34cafda))
+
 ### [1.1.3](https://github.com/MCluck90/kaleidofoam/compare/v1.1.2...v1.1.3) (2022-02-22)
 
 ### [1.1.2](https://github.com/MCluck90/kaleidofoam/compare/v1.1.1...v1.1.2) (2022-02-22)
