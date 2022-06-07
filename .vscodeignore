@@ -1,6 +1,7 @@
 .husky/
 .vscode/
 node_modules/
+out/test/
 src/
 cliff.toml
 commitlint.config.js
