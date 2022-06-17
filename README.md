@@ -109,8 +109,6 @@ By default, this will send a notification at 11:00 telling you to check your ema
 - `kaleidofoam.minutesBeforeNotifications`
   - Set the number of minutes before the listed time to send the notification. Defaults to 0
 
-NOTE: Only verified to work on Windows. I've had issues getting this to work on Linux.
-
 ### Toggle Todo
 Command: `kaleidofoam.toggleTodo`
 
