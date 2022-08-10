@@ -41,11 +41,22 @@ export const createDailyNote = async (date: Date, workspaceUri: vscode.Uri) => {
   const tomorrow = toYYYYMMDD(addDays(date, 1))
 
   const template = getTemplate('daily')
-  const contents = template
+  let contents = template
     .replace('$TITLE', title)
     .replace('$WEEKLY', `[[${weeklyNoteTitle}]]`)
     .replace('$YESTERDAY', `[[${yesterday}]]`)
     .replace('$TOMORROW', `[[${tomorrow}]]`)
+  const customSections =
+    vscode.workspace
+      .getConfiguration('kaleidofoam')
+      .get<string[]>('customSections') || []
+  if (customSections.length > 0) {
+    contents += '\n'
+  }
+  for (const section of customSections) {
+    contents += `## ${section}\n\n`
+  }
+
   await vscode.workspace.fs.writeFile(
     notePath,
     new TextEncoder().encode(contents)

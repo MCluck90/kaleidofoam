@@ -49,6 +49,14 @@
             "Use VS Code notifications",
             "Disable notifications"
           ]
+        },
+        "kaleidofoam.customSections": {
+          "description": "Custom sections to add to daily notes",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
         }
       }
     },
