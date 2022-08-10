@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/MCluck90/kaleidofoam/compare/v1.2.0...v1.3.0) (2022-08-10)
+
+
+### Features
+
+* **custom-sections:** add the ability to include custom sections in daily notes ([b6d729c](https://github.com/MCluck90/kaleidofoam/commit/b6d729c8c54fd67594ada947b6c45d2e8a08a4df))
+
 ## [1.2.0](https://github.com/MCluck90/kaleidofoam/compare/v1.1.3...v1.2.0) (2022-06-06)
 
 
