@@ -30,6 +30,10 @@ Command: `kaleidofoam.openToday`
 
 Opens todays daily note and generates notes for the week.
 
+#### Configuration
+- `kaleidofoam.customSections`
+  - Add custom sections you would like to include in your daily notes.
+
 ### Add to Log
 Command: `kaleidofoam.addToLog`
 
