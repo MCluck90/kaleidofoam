@@ -133,7 +133,7 @@
     "watch": "yarn rebuild && tsc -watch -p ./",
     "lint": "eslint src --ext ts && prettier -c \"src/**/*.ts\"",
     "pretest": "yarn build:tests && yarn lint",
-    "test": "node ./out-tests/test/runTest.js",
+    "test": "node ./out/tests/test/runTest.js",
     "vscode:prepublish": "yarn rebuild",
     "vscode:package": "vsce package",
     "vscode:publish": "vsce publish",
