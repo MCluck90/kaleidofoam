@@ -20,6 +20,12 @@ I built these features to help my daily notes work better for me. My daily notes
 
 Personally, I have most of the features here [bound to a keyboard shortcut](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-editor) but this extension does not add these bindings for you.
 
+I use Vim bindings. All of my Markdown specific commands are prefixed with `<leader>m`. Here are some of the bindings that I use:
+
+- `<leader>mt`: `kaleidofoam.addTodo`
+- `<leader>ml`: `kaleidofoam.addLog`
+- `<leader>mf`: `kaleidofoam.forwardTodo`
+
 ## Getting Started
 
 Run `KaleidoFoam: Open Today` to open your daily note.
@@ -70,6 +76,11 @@ Example:
 
 [[2022-02-20]] | [[2022-02-22]]
 ```
+
+### Open Yesterday/Tomorrow
+Commands: `kaleidofoam.openYesterday`, `kaleidofoam.openTomorrow`
+
+Opens yesterday or tomorrows note relative to the current note.
 
 ### Forward Todo
 Command: `kaleidofoam.forwardTodo`

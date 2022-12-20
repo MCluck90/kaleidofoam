@@ -66,6 +66,14 @@
         "title": "KaleidoFoam: Open Today"
       },
       {
+        "command": "kaleidofoam.openTomorrow",
+        "title": "KaleidoFoam: Open Tomorrow"
+      },
+      {
+        "command": "kaleidofoam.openYesterday",
+        "title": "KaleidoFoam: Open Yesterday"
+      },
+      {
         "command": "kaleidofoam.openLastWeek",
         "title": "KaleidoFoam: Open Last Week"
       },

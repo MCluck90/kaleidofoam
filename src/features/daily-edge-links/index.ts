@@ -1,4 +1,5 @@
 import * as vscode from 'vscode'
+import { createAndOpenDailyNote } from '../../note-creation'
 import {
   addDays,
   getDateFromDocument,
@@ -75,5 +76,40 @@ export const dailyEdgeLinksFeature: Feature = {
         }
       )
     )
+
+    const registerGoToRelativeDay = (command: string, offset: number) => {
+      context.subscriptions.push(
+        vscode.commands.registerCommand(command, async () => {
+          const editor = vscode.window.activeTextEditor
+          if (!editor) {
+            vscode.window.showErrorMessage('Must be editing a daily note.')
+            return
+          }
+
+          const workspaceFolder =
+            vscode.workspace.workspaceFolders?.[0].uri.path
+          if (!workspaceFolder) {
+            vscode.window.showErrorMessage('Unable to access workspace folder.')
+            return
+          }
+
+          const currentFilePath = editor.document.uri.path
+          const relativePath = currentFilePath.replace(workspaceFolder, '')
+          if (!relativePath.startsWith('/dailies')) {
+            vscode.window.showErrorMessage(
+              'Should only run this on daily notes.'
+            )
+            return
+          }
+
+          const noteDate = getDateFromDocument(editor.document)
+          const yesterday = addDays(noteDate, offset)
+          createAndOpenDailyNote(yesterday)
+        })
+      )
+    }
+
+    registerGoToRelativeDay('kaleidofoam.openYesterday', -1)
+    registerGoToRelativeDay('kaleidofoam.openTomorrow', 1)
   },
 }
