@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/MCluck90/kaleidofoam/compare/v1.3.0...v1.4.0) (2022-12-20)
+
+
+### Features
+
+* **openyesterday/tomorrow:** add commands for opening yesterday or tomorrow ([d0d5afb](https://github.com/MCluck90/kaleidofoam/commit/d0d5afbc07da0730ebf8340f37d2a89e83201516)), closes [#7](https://github.com/MCluck90/kaleidofoam/issues/7)
+
 ## [1.3.0](https://github.com/MCluck90/kaleidofoam/compare/v1.2.0...v1.3.0) (2022-08-10)
 
 
