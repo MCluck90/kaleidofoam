@@ -23,7 +23,7 @@ Personally, I have most of the features here [bound to a keyboard shortcut](http
 I use Vim bindings. All of my Markdown specific commands are prefixed with `<leader>m`. Here are some of the bindings that I use:
 
 - `<leader>mt`: `kaleidofoam.addTodo`
-- `<leader>ml`: `kaleidofoam.addLog`
+- `<leader>ml`: `kaleidofoam.addToLog`
 - `<leader>mf`: `kaleidofoam.forwardTodo`
 
 ## Getting Started
